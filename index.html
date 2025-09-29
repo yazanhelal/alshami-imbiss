@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alshami Imbiss</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- NAVBAR (Overlay style) -->
+    <header class="nav nav--overlay">
+      <div class="container nav__inner">
+        <button class="nav-toggle" id="navToggle" aria-controls="overlayMenu" aria-expanded="false">☰</button>
+
+        <a class="brand brand-group" href="index.html">
+          <img src="alshami_logo_transparent.png" alt="Alshami Imbiss" class="brand__logo" />
+          <div class="lang-switch">
+            <button data-setlang="de" class="is-active">DE</button>
+            <button data-setlang="ar">AR</button>
+          </div>
+        </a>
+      </div>
+
+      <nav class="overlay-menu" id="overlayMenu">
+        <button class="nav-close" id="navClose">✕</button>
+        <ul>
+          <li><a href="index.html#home" data-i18n="nav_home">Home</a></li>
+          <li><a href="menu.html" data-i18n="nav_menu">Menü</a></li>
+          <li><a href="index.html#services" data-i18n="nav_services">Services</a></li>
+          <li><a href="index.html#contact" data-i18n="nav_contact">Kontakt &amp; Öffnungszeiten</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="hero__overlay"></div>
+        <div class="hero__content container">
+          <h1 class="hero__title" data-i18n="hero_title">Willkommen<br />beim Al-Shami<br />Imbiss</h1>
+          <a class="btn btn--beige btn--pill" href="menu.html" data-i18n="hero_cta">Menü</a>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="about" aria-labelledby="about-title">
+        <div class="container about__grid">
+          <div class="about__img">
+            <img src="ABUK.webp" alt="Inhaber Al-Shami mit Speisen" />
+          </div>
+
+          <div class="card about__card">
+            <h2 id="about-title" data-i18n="about_title">Das beste Shawarma in Wien,<br />in Worten und Taten.</h2>
+            <p data-i18n="about_text">Im Al-Shami, im 16. Bezirk in Wien, bieten wir syrische Aromen …</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="services-section">
+        <div class="container">
+          <div class="services-head" data-i18n="services_title_box">Services</div>
+
+          <article class="service-card">
+            <div class="service-media">
+              <img src="AlshamiImbiss.webp" alt="Syrisches Shawarma" />
+            </div>
+            <div class="service-body">
+              <h3 class="service-title" data-i18n="srv1_title">Syrisches Shawarma …</h3>
+              <p class="service-text" data-i18n="srv1_text">Genießen Sie das köstlichste Shawarma …</p>
+              <a class="btn btn--rose btn--pill" href="https://maps.google.com/?q=Al+Shami+Imbiss" target="_blank" rel="noopener" data-i18n="btn_location">Standort</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-media">
+              <img src="grouppic.jpg" alt="Kichererbsen und frische Zutaten" />
+            </div>
+            <div class="service-body">
+              <h3 class="service-title" data-i18n="srv2_title">Authentizität und Wirtschaftlichkeit …</h3>
+              <p class="service-text" data-i18n="srv2_text">Großartiges Essen soll zugänglich sein …</p>
+              <a class="btn btn--rose btn--pill" href="https://maps.google.com/?q=Al+Shami+Imbiss" target="_blank" rel="noopener" data-i18n="btn_location">Standort</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-media">
+              <img src="pic1.webp" alt="Zutaten" />
+            </div>
+            <div class="service-body">
+              <h3 class="service-title" data-i18n="srv3_title">Vegetarische Optionen: …</h3>
+              <p class="service-text" data-i18n="srv3_text">In unserem Restaurant, das Gerichte …</p>
+              <a class="btn btn--rose btn--pill" href="https://maps.google.com/?q=Al+Shami+Imbiss" target="_blank" rel="noopener" data-i18n="btn_location">Standort</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="gallery" class="gallery" aria-labelledby="gallery-title">
+        <div class="container">
+          <h2 id="gallery-title" data-i18n="gallery_title">Galerie</h2>
+
+          <div class="gallery-grid">
+            <figure class="gallery-item" data-img="Falafelteler.jpg">
+              <div class="gi-media"><img src="Falafelteler.jpg" alt="" /></div>
+              <figcaption data-i18n="g1_title">Knusprige Falafel mit Hummus</figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-img="Hummus.jpeg">
+              <div class="gi-media"><img src="Hummus.jpeg" alt="" /></div>
+              <figcaption data-i18n="g2_title">Cremiger Hummus mit Olivenöl</figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-img="Tbule.webp">
+              <div class="gi-media"><img src="Tbule.webp" alt="" /></div>
+              <figcaption data-i18n="g3_title">Tabbouleh-Salat</figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-img="Mtabal.webp">
+              <div class="gi-media"><img src="Mtabal.webp" alt="" /></div>
+              <figcaption data-i18n="g4_title">Mutabbal mit Auberginen</figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-img="Schawarma Teller ">
+              <div class="gi-media"><img src="schwarmateller.jpeg" alt="" /></div>
+              <figcaption data-i18n="g5_title">Schawarma Teller</figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-img="Kibbeh">
+              <div class="gi-media"><img src="Kibbeh.jpeg" alt="" /></div>
+              <figcaption data-i18n="g6_title">Kibbeh</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODAL -->
+      <div class="modal" id="gModal" aria-hidden="true">
+        <div class="modal__overlay" data-close></div>
+        <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+          <button class="modal__close" type="button" title="Schließen" data-close>&times;</button>
+          <div class="modal__media"><img id="mImg" src="" alt="" /></div>
+          <div class="modal__body">
+            <h3 id="mTitle"></h3>
+            <p id="mDesc"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEO SCROLLER -->
+      <section id="videos" class="video-strip" aria-labelledby="videos-title">
+        <div class="container">
+          <h2 id="videos-title">Videos</h2>
+          <div class="video-strip__wrap">
+            <button class="vs-btn vs-btn--left" aria-label="Scroll left">‹</button>
+            <div class="video-strip__track" tabindex="0">
+              <!-- Beispielvideos: ersetze src durch deine Video-Dateien -->
+              <figure class="video-item" data-src="Kommt zu AL Shami Imbiss 🔥✨.mp4">
+                <div class="vi-thumb"><video src="Kommt zu AL Shami Imbiss 🔥✨.mp4" muted playsinline preload="metadata"></video></div>
+              </figure>
+
+              <figure class="video-item" data-src="shwarma12.mp4">
+                <div class="vi-thumb"><video src="shwarma12.mp4" muted playsinline preload="metadata"></video></div>
+              </figure>
+
+              <figure class="video-item" data-src="Falafel.mp4">
+                <div class="vi-thumb"><video src="Falafel.mp4" muted playsinline preload="metadata"></video></div>
+              </figure>
+
+              <figure class="video-item" data-src="Humos.mp4">
+                <div class="vi-thumb"><video src="Humos.mp4" muted playsinline preload="metadata"></video></div>
+              </figure>
+            </div>
+            <button class="vs-btn vs-btn--right" aria-label="Scroll right">›</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <h2 class="section-head" data-i18n="contact_title">Kontakt &amp; Öffnungszeiten</h2>
+
+          <div class="contact-wrap">
+            <div class="contact-card">
+              <h3 data-i18n="contact_h_contact">Kontakt</h3>
+              <ul class="contact-list">
+                <li><span class="ci">✉️</span> <a href="mailto:alshami-imbiss@gmail.com">alshami-imbiss@gmail.com</a></li>
+                <li><span class="ci">📞</span> <a href="tel:+436765555198">0676 555 5198</a></li>
+                <li><span class="ci">📍</span> <a href="https://maps.google.com/?q=Brunnengasse,+1160+Wien" target="_blank" rel="noopener">Brunnengasse, 1160 Wien</a></li>
+              </ul>
+            </div>
+
+            <div class="contact-card">
+              <h3 data-i18n="contact_h_hours">Öffnungszeiten</h3>
+              <div class="hours">
+                <div>Montag</div><div>6:00 – 21:00</div>
+                <div>Dienstag</div><div>6:00 – 21:00</div>
+                <div>Mittwoch</div><div>6:00 – 21:00</div>
+                <div>Donnerstag</div><div>6:00 – 21:00</div>
+                <div>Freitag</div><div>6:00 – 21:00</div>
+                <div>Samstag</div><div>6:00 – 18:00</div>
+                <div>Sonntag</div><div>Ruhetag</div>
+              </div>
+              <small class="hint" data-i18n="contact_hint">Feiertage können abweichen.</small>
+            </div>
+
+            <!-- Google Maps -->
+            <div class="contact-card map">
+              <h3>📍 Standort</h3>
+              <iframe
+                src="https://www.google.com/maps?q=Brunnengasse,+1160+Wien&output=embed"
+                width="100%"
+                height="300"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <span>&copy; <span id="year"></span> Al-Shami Imbiss</span>
+        <a href="https://www.instagram.com/al_shami_imbiss/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

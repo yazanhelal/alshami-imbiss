@@ -1,0 +1,741 @@
+/* ===== Farb- und Typo-Variablen ===== */
+:root{
+  --maroon:#f26522;     /* Top-Bar / Schild-Orange */
+  --tan:#C08261;        /* Bereich unter Hero */
+  --beige:#E2C799;      /* Buttons/Details */
+  --rose:#B55B5B;       /* Akzent-Button */
+  --gold:#F2CB07;       /* Akzent-Schrift im Hero (optional) */
+  --dark:#0F0F0F;
+  --almost-black:#121212;
+  --text:#1b1b1b;
+  --white:#fff;
+
+  --radius:14px;
+  --shadow:0 10px 25px rgba(0,0,0,.18);
+}
+
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%}
+/* Make the page a column flex container so footer can sit at the bottom when content is short */
+body{
+  font-family:'Roboto',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:var(--white);
+  line-height:1.55;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+
+h1,h2,h3{font-family:'Poppins',sans-serif;margin:0 0 .6rem}
+h1{font-size:clamp(28px,5vw,56px);line-height:1.1}
+h2{font-size:clamp(22px,3.2vw,30px)}
+
+/* ===== Hilfsklassen ===== */
+.container{width:min(1200px,92%);margin-inline:auto}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:.5rem;padding:.7rem 1.1rem;border-radius:10px;
+  text-decoration:none;font-weight:600;border:0;cursor:pointer;
+  box-shadow:var(--shadow);transition:transform .15s ease,opacity .15s ease,filter .15s ease;
+}
+.btn:hover{transform:translateY(-1px);filter:saturate(1.05)}
+.btn--pill{border-radius:999px;padding:.55rem 1rem;font-size:.9rem}
+.btn--beige{background:var(--beige);color:#5b3e2e}
+.btn--rose{background:var(--rose);color:#fff} /* fix: richtiger Var-Wert */
+.btn--wide{width:min(320px,90%)}
+
+/* ===== Navbar ===== */
+.nav{
+  position:sticky;top:0;z-index:1500;background:var(--maroon);color:#a56923;
+}
+
+/* ===== Card utility classes (apply on .service-card or .product-card) ===== */
+.card--wide{ --card-width: min(1100px, 98%); }
+.card--full{ --card-width: 100%; --card-margin: 1rem 0; border-radius: 0; }
+.card--narrow{ --card-width: min(720px, 96%); }
+
+/* Example: change body padding for a specific card
+  <article class="service-card card--wide" style="--service-body-padding:1.6rem 2rem 2rem"> ... </article>
+*/
+.nav__inner{
+  display:flex;align-items:center;justify-content:space-between;/* default navbar height */
+  height:104px; /* more room for a larger logo */
+  padding: 0 1rem;
+}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:#fff}
+.brand__logo {
+  height: 120px; /* larger on desktop so logo is clearly visible */
+  width: auto;
+  max-height: 140px;
+  display: block;
+}
+
+/* When brand and language switch are grouped */
+.brand.brand-group{display:flex;align-items:center;gap:.8rem}
+.brand.brand-group .lang-switch{display:flex;gap:.4rem;margin-left:.6rem}
+.brand.brand-group .lang-switch button{padding:.25rem .5rem;font-weight:700;border-radius:.4rem}
+
+.brand__text{font-weight:700;letter-spacing:.08em}
+
+.menu{display:flex;gap:1.2rem}
+.menu a{
+  color:#9de24c;text-decoration:none;font-weight:500;opacity:.95;
+  outline-offset:2px;
+}
+.menu a:hover,
+.menu a:focus-visible{opacity:1;text-decoration:underline}
+
+
+
+/* ===== Overlay Menü ===== */
+.nav--overlay {
+  position: relative;
+  background: var(--maroon);
+  color: #fff;
+  z-index: 2000;
+}
+
+.nav__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 92px; /* taller for overlay variant to match bigger logo */
+  padding: 0 1rem;
+}
+
+.nav-toggle {
+  font-size: 1.8rem;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.brand__logo {
+  height: 132px; /* overlay variant larger to match desktop sizing */
+  width: auto;
+}
+
+/* Responsive adjustments: keep logo smaller on narrow screens */
+@media (max-width:960px){
+  /* Medium screens: slightly smaller logo */
+  .nav__inner{height:80px}
+  .brand__logo{height:76px}
+}
+
+@media (max-width:720px){
+  /* Mobile: keep logo compact to preserve space */
+  .nav__inner{height:58px}
+  .brand__logo{height:44px}
+}
+
+@media (min-width:961px) and (max-width:1400px){
+  /* Large tablets / small laptops */
+  .nav__inner{height:92px}
+  .brand__logo{height:96px}
+}
+
+/* Overlay Menü versteckt */
+.overlay-menu {
+  position: fixed;
+  inset: 0;
+  background:var(--maroon); /* ähnliches Rot wie im Beispiel */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-top: 70px;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* sichtbar */
+.overlay-menu.is-open {
+  transform: translateY(0);
+}
+
+.overlay-menu .nav-close {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.overlay-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.overlay-menu li {
+  border-bottom: 1px solid rgba(0,0,0,.4);
+}
+
+.overlay-menu a {
+  display: block;
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+}
+
+.overlay-menu a:hover {
+  background: rgba(0,0,0,.15);
+}
+
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;min-height:68vh;display:grid;place-items:center;
+  background:url('IMG_3196.JPG') center/cover no-repeat fixed;
+}
+@media (max-width: 780px){
+  .hero{ background-attachment:scroll; } /* smoother auf Mobile */
+}
+.hero__overlay{
+  position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.65));
+}
+.hero__content{
+  position:relative;text-align:center;color:#ffffff;padding:6rem 0;
+}
+.hero__title{
+  text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem;
+}
+
+/* ===== About-Bereich (tan) ===== */
+.about{background:var(--maroon);padding:4rem 0 3rem}
+.about__grid{
+  display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;align-items:center;
+}
+.about__img img{
+  width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow);
+}
+.card{
+  background:linear-gradient(#d9b18a,#d9b18a) padding-box,
+             linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)) border-box;
+  border:1px solid rgba(0,0,0,.18);
+  padding:1.4rem;border-radius:12px;box-shadow:var(--shadow);
+}
+.about__card h2{color:#fff;margin-bottom:.6rem}
+.about__card p{color:#fff;opacity:.95;margin-bottom:1rem}
+
+/* Button in der Mitte unter dem About-Block */
+.about__divider{
+  display:flex;justify-content:center;margin-top:2.2rem;
+}
+
+/* ===== Galerie ===== */
+
+.gallery {
+  position: relative;
+  padding: 3rem 0;
+  background: url("logonew.jpg") center/cover no-repeat; /* Dein Bild */
+  color: #fff; /* Texte lesbarer */
+}
+
+/* Dunkle Overlay für bessere Lesbarkeit */
+.gallery::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4); /* Transparenz anpassen */
+  z-index: 0;
+}
+
+.gallery > * {
+  position: relative;
+  z-index: 1;
+}
+
+.gallery h2 {
+  margin: 0 auto 1.2rem;
+  width: min(460px, 92%);
+  text-align: center;
+  background: var(--maroon);
+  color: #9de24c;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: .04em;
+  padding: .6rem 1rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.gallery-grid {
+  display: grid; gap: 1.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.gallery-item {
+  background: #fff; border-radius: 16px; overflow: hidden; cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,.15);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.gallery-item:hover { transform: translateY(-4px); box-shadow: 0 18px 30px rgba(0,0,0,.22); }
+
+.gi-media { position: relative; isolation: isolate; }
+.gi-media::after {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 60%, rgba(0,0,0,0) 40%, rgba(0,0,0,.28) 100%);
+  opacity: 0; transition: opacity .25s ease;
+}
+.gallery-item:hover .gi-media::after { opacity: .9; }
+.gallery-item img { width: 100%; height: 210px; object-fit: cover; display: block; }
+.gallery-item figcaption { padding: .8rem 1rem; font-weight: 600; text-align: center; color: #333; }
+
+
+/* Modal / Lightbox */
+.modal { position: fixed; inset: 0; display: none; z-index: 2000; }
+.modal.is-open { display: block; }
+.modal__overlay { position: absolute; inset: 0; background: rgba(0,0,0,.65); backdrop-filter: blur(2px); }
+
+.modal__dialog {
+  position: relative; z-index: 1; margin: 4vh auto 0; width: min(980px, 92%);
+  background: #1f1f1f; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  overflow: hidden; animation: pop .18s ease-out;
+}
+@keyframes pop { from { transform: scale(.96); opacity: .7 } to { transform: scale(1); opacity: 1 } }
+
+.modal__media img { width: 100%; height: 56vh; object-fit: cover; display: block; }
+.modal__body { padding: 1rem 1.2rem; color: #eee; }
+.modal__body h3 { margin: .2rem 0 .5rem; font-family: 'Poppins', sans-serif; }
+.modal__close {
+  position: absolute; top: .6rem; right: .6rem; width: 44px; height: 44px;
+  border: 0; border-radius: 50%; background: rgba(0,0,0,.5); color: #fff;
+  font-size: 28px; cursor: pointer; line-height: 44px;
+}
+
+@media (max-width: 700px) { .modal__media img { height: 38vh; } }
+
+/* Bild dreht sich beim Öffnen */
+.modal__media img { transform-origin: 50% 50%; }
+
+/* Beschreibung wird erst nach der Bild-Animation sichtbar */
+.modal__body { transition: opacity .25s ease; }
+.modal__body.is-hidden { opacity: 0; }
+
+/* Spin-In Animation */
+.spin-in { animation: imgSpin .7s ease-out both; }
+@keyframes imgSpin {
+  0%   { transform: scale(.85) rotate(-15deg); opacity: 0; }
+  60%  { transform: scale(1.05) rotate(345deg); opacity: 1; }
+  100% { transform: scale(1)    rotate(360deg); opacity: 1; }
+}
+
+/* ===== Services (Karten-Stil) ===== */
+.services-section {
+  background: url("logonew.jpg") center/cover no-repeat;
+  padding: 2.5rem 0 3.2rem;
+  position: relative;
+  color: #fff; /* damit Text sichtbar bleibt */
+}
+
+/* Optional: dunkle Überlagerung fürs bessere Lesen */
+.services-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4); /* halbtransparentes Schwarz */
+  z-index: 0;
+}
+
+.services-section > * {
+  position: relative;
+  z-index: 1; /* Text & Karten über der Overlay */
+}
+
+.services-head{
+  margin: 0 auto 1.2rem;
+  width: min(460px, 92%);
+  text-align: center;
+  background: var(--maroon);
+  color: #9de24c;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: .04em;
+  padding: .6rem 1rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  /* match gallery/section heading size */
+  font-size: clamp(22px, 3.2vw, 30px);
+}
+
+/* Karte */
+.service-card{
+  /* card defaults (customizable via CSS variables) */
+  --card-width: min(960px, 98%);
+  --card-margin: 1.4rem auto;
+  --card-radius: 12px;
+  --card-shadow: 0 10px 22px rgba(0,0,0,.28);
+  --card-bg: var(--maroon);
+
+  background: var(--card-bg); /* tan/rose Mischton */
+  border: 1px solid rgba(0,0,0,.25);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  /* make service cards wider but constrained for very large screens */
+  width: var(--card-width);
+  margin: var(--card-margin);        /* zentriert + etwas mehr vertikaler Abstand */
+}
+
+/* Bild oben */
+.service-media{
+  display: grid; place-items: center;
+  padding-top: 1.2rem;
+}
+.service-media img{
+  width: min(260px, 80%);
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+}
+
+/* Inhalt */
+.service-body{
+  padding: var(--service-body-padding, 1.1rem 1.4rem 1.4rem);
+  text-align: center;
+}
+.service-title{
+  color: #ffe9e1;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  margin: .8rem 0 .6rem;
+}
+.service-text{
+  color: #fff;
+  opacity: .95;
+  line-height: 1.6;
+  margin: 0 auto 1rem;
+  max-width: 64ch;
+}
+
+/* 3D-Hover für Services */
+.service-card{
+  perspective: 900px;                 /* 3D-Raum */
+  transform-style: preserve-3d;
+}
+
+.service-card .service-media{
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+  will-change: transform;
+}
+
+.service-card:hover{
+  transform: translateY(-2px);        /* sanfter Lift als Fallback */
+  transition: transform .2s ease;
+}
+
+.service-card.is-tilting .service-media{
+  box-shadow: 0 18px 28px rgba(0,0,0,.18);
+}
+
+/* weniger Bewegung, falls vom Nutzer gewünscht */
+@media (prefers-reduced-motion: reduce){
+  .service-card,
+  .service-card .service-media{
+    transition: none !important;
+  }
+}
+
+
+/* ===== Kontakt & Öffnungszeiten ===== */
+.contact{
+  padding: 3rem 0;
+  background: #1a1717; /* leicht heller Abschnitt */
+}
+.section-head{
+  margin: 0 auto 1.2rem;
+  width: min(460px, 92%);
+  text-align: center;
+  background: #1a1717;
+  color: #9de24c;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: .04em;
+  padding: .6rem 1rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.contact-wrap{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem; /* slightly larger gap so cards are visually separated */
+}
+@media (max-width: 780px){
+  .contact-wrap{ grid-template-columns: 1fr; }
+}
+
+.contact-card{
+  background:#c98f70;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  padding: 1.4rem 1.6rem; /* more consistent inner spacing */
+  display:flex;
+  flex-direction:column;
+}
+
+.contact-card.map {
+  margin-top: 1.5rem; /* Abstand nach oben */
+  grid-column: 1 / -1; /* nimmt die ganze Zeile ein */
+}
+
+/* extra breathing room below the contact/map so the iframe doesn't butt up to the footer */
+.contact-wrap{padding-bottom:1.2rem}
+.contact-card.map iframe{margin-bottom:1rem}
+
+/* Center the contact info vertically for non-map cards (email, phone, address) */
+.contact-card:not(.map) {
+  /* keep content starting from top so the card header remains at the top like Öffnungszeiten */
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+/* Keep the small card titles centered (like the Öffnungszeiten look) */
+.contact-card h3{ text-align: center; }
+
+.contact-card h3{
+  margin: .2rem 0 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-card a{ color:#fff; text-decoration:none; display:inline-block; margin-top:.25rem }
+.contact-card a:hover{ text-decoration:underline }
+
+.contact-list{
+  list-style:none; margin:0 0 1rem; padding:0;
+  display:flex; flex-direction:column; gap:.8rem; /* larger gap for readability */
+}
+.contact-list a{ color:#333; text-decoration:none; }
+.contact-list a:hover{ text-decoration:underline; }
+.ci{ width:1.6rem; display:inline-block; opacity:.8; }
+
+.hours{
+  display:grid; grid-template-columns: 1fr auto; /* Tag | Zeit */
+  gap:.4rem .8rem; font-variant-numeric: tabular-nums;
+}
+.hours div:nth-child(2n){ color:#0b8a2a; font-weight:600; } /* Zeit grün */
+.hint{ display:block; margin-top:.8rem; color:#0b8a2a; }
+
+/* ===== Footer ===== */
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+}
+.footer-content {
+  display: flex;
+  justify-content: center;  /* alles zentriert */
+  align-items: center;
+  gap: 1rem;                 /* Abstand zwischen Text und Icon */
+}
+
+/* ensure footer stays after the page content when using body flex column */
+footer.footer{margin-top:auto}
+.footer-content a {
+  color: #fff;          /* Standard weiß */
+  font-size: 1.5rem;    /* Icon-Größe */
+  transition: color 0.3s ease;
+}
+.footer-content a:hover { color: #f26522; } /* Orange beim Hover */
+
+/* ===== Video Strip (horizontales Scrolling) ===== */
+.video-strip{padding:2.4rem 0;background:linear-gradient(180deg,#c75a1a,#8b3b12);color:#fff}
+.video-strip h2{margin:0 auto 1rem;text-align:center;max-width:460px;background:var(--maroon);color:#9de24c;font-family:'Poppins',sans-serif;font-weight:700;letter-spacing:.04em;padding:.6rem 1rem;border-radius:10px;box-shadow:var(--shadow)}
+.video-strip__wrap{position:relative;display:flex;align-items:center}
+.video-strip__track{display:flex;gap:1rem;overflow-x:auto;padding:1rem 0;scroll-behavior:smooth;scroll-snap-type:x mandatory}
+.video-item{min-width:260px;max-width:360px;flex:0 0 auto;scroll-snap-align:center;background:rgba(255,255,255,0.06);border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,.18);cursor:pointer}
+.video-item .vi-thumb{background:transparent;display:flex;align-items:center;justify-content:center;padding:0}
+.video-item video{width:100%;height:auto;object-fit:contain;display:block}
+.video-item figcaption{padding:.6rem 0;text-align:center;font-weight:600;color:#9de24c}
+
+/* enable 3D hover-tilt effect similar to .service-card */
+.video-item{
+  perspective:900px;transform-style:preserve-3d;transition:transform .18s ease,box-shadow .18s ease;
+}
+.video-item .vi-thumb{will-change:transform}
+.vs-btn{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:0;background:rgba(0,0,0,.55);color:#fff;font-size:1.4rem;cursor:pointer;display:grid;place-items:center;z-index:50;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.vs-btn--left{left:8px}
+.vs-btn--right{right:8px}
+.vs-btn:focus{outline:2px solid #f26522}
+
+/* make sure small screens hide the side buttons and show a full-width scroller */
+@media (max-width:720px){
+  .vs-btn{display:none}
+  .video-item{min-width:72vw}
+  /* On mobile let the video determine height via its aspect ratio (portrait videos will appear tall) */
+  .video-item .vi-thumb{height:auto}
+}
+
+/* Video Modal (reuse modal styling) */
+.video-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:3000}
+.video-modal.is-open{display:flex}
+.video-modal__overlay{position:absolute;inset:0;background:rgba(0,0,0,.7)}
+.video-modal__dialog{position:relative;z-index:1;width:min(980px,94%);background:#111;border-radius:12px;overflow:hidden}
+.video-modal video{width:100%;height:60vh;object-fit:contain;background:#000}
+.video-modal__hint{position:absolute;top:.6rem;right:.6rem;color:rgba(255,255,255,.9);font-size:.85rem;padding:.3rem .6rem;background:rgba(0,0,0,.25);border-radius:6px}
+
+/* ===== Responsiv ===== */
+@media (max-width:960px){
+  .about__grid{grid-template-columns:1fr;gap:1.4rem}
+  .about__card{text-align:center}
+}
+@media (max-width:720px){
+  .menu{display:none} /* simple mobile: Menü ausblenden; optional Burger ergänzen */
+  .nav__inner{height:60px}
+  .hero{min-height:62vh}
+}
+
+/* ===== Menüseite ===== */
+.menu-page{padding:2.2rem 0 3.5rem;background:#862e14}
+.page-title{margin:1rem auto 1.5rem;text-align:center;display:block;padding:.8rem 1.2rem;border-radius:12px;background:var(--maroon);color:#9de24c;font-family:'Poppins',sans-serif;font-weight:700;letter-spacing:.06em;box-shadow:var(--shadow);font-size:clamp(28px,4.2vw,40px);width:min(720px,92%)}
+
+.section-title{
+  margin:2.2rem 0 1rem;text-align:center;
+  padding-bottom:.6rem;border-bottom:1px solid rgba(0,0,0,.12);
+  color:#42c50f
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem 1.2rem;
+}
+@media (max-width:980px){.product-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.product-grid{grid-template-columns:1fr}}
+
+.product-card{
+  background:#fff;border:1px solid rgba(0,0,0,.08);
+  border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.06);
+  overflow:hidden;display:flex;flex-direction:column;
+}
+.product-media{aspect-ratio:16/10;background:#eee;overflow:hidden}
+.product-media img{width:100%;height:100%;object-fit:cover;display:block}
+
+.product-body{padding:.9rem}
+.product-title{font-size:1.05rem;margin:0 0 .35rem}
+.product-note{margin:0 0 .6rem;color:#666;font-size:.92rem}
+
+.product-meta{
+  display:flex;align-items:center;/* left-aligned group */
+  gap:.6rem;margin-top:.6rem;flex-wrap:nowrap;
+  font-size:.85rem;color:#5b6b70;
+}
+/* push price to the far right so all prices align vertically */
+.product-meta .price{
+  margin-left:auto; /* takes available space and aligns price to right */
+  flex:0 0 auto;
+  min-width:72px; /* reserve consistent column width */
+  text-align:right;
+}
+.badge{
+  display:inline-block;background:#e8f3ff;color:#1162b0;
+  padding:.25rem .5rem;border-radius:999px;font-weight:600;font-size:.78rem;
+  white-space:nowrap;
+}
+.variant{opacity:.9;white-space:nowrap}
+
+.product-footer{
+  margin-top:auto;display:flex;align-items:center;justify-content:space-between;
+  padding:.85rem .9rem;border-top:1px solid rgba(0,0,0,.06)
+}
+.price{
+  color:#0a8a2a;font-weight:700;background:#e9fff0;border-radius:999px;
+  padding:.25rem .6rem;font-size:.95rem;white-space:nowrap;
+}
+
+/* aktiver Menülink */
+.menu .is-active{font-weight:700;text-decoration:underline}
+
+/* ===== Anchor-Offset, damit sticky Navbar nichts verdeckt ===== */
+#home, #services, #contact, #gallery, #shawarma, #veg, #legumes, #Beilagen, .section-title {
+  scroll-margin-top: 80px;
+}
+
+/* 3D-Hover für Menü-Karten */
+.product-card { 
+  perspective: 900px;              /* 3D-Raum */
+  transform-style: preserve-3d;
+}
+
+.product-card .product-media {
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+  will-change: transform;
+}
+
+.product-card .product-media img {
+  display: block;
+  transform-origin: 50% 50%;
+}
+
+/* kleine Grund-Lift-Animation als Fallback (ohne JS) */
+.product-card:hover { 
+  transform: translateY(-2px); 
+  transition: transform .2s ease;
+}
+
+/* wenn JS aktiv -> intensiver Effekt */
+.product-card.is-tilting .product-media {
+  box-shadow: 0 18px 28px rgba(0,0,0,.18);
+}
+
+/* Bei reduzierter Bewegung: Effekte minimieren */
+@media (prefers-reduced-motion: reduce) {
+  .product-card,
+  .product-card .product-media {
+    transition: none !important;
+  }
+}
+
+/* ===== Sprachumschalter ===== */
+.lang-switch { display:flex; gap:.4rem; }
+.lang-switch button{
+  border:1px solid rgba(0,0,0,.15);
+  background:#fff; padding:.35rem .6rem; border-radius:.5rem; cursor:pointer;
+  font-weight:600;
+}
+.lang-switch button.is-active{
+  background:#f26522; color:#9de24c; border-color:transparent;
+}
+
+/* ===== RTL Layout-Helfer ===== */
+/* Keep logical text direction for Arabic but preserve the original (German) visual order
+  of navigation items — user prefers the same menu sorting as in DE. */
+html[dir="rtl"] body { direction: rtl; }
+/* Do NOT reverse the menu order; keep the DOM order so the navbar doesn't 'move' */
+html[dir="rtl"] .menu { flex-direction: row; }
+/* Keep menu links left-aligned visually so layout remains consistent across languages.
+  The internal content (product bodies, paragraphs) can still be RTL where needed. */
+html[dir="rtl"] .menu a { text-align: left; }
+/* Product and content text should still flow RTL for Arabic */
+html[dir="rtl"] .product-body { text-align: right; }
+/* Wenn du die Reihenfolge Allergen–Variante–Preis beibehalten willst, diese beiden NICHT setzen: */
+/* html[dir="rtl"] .product-meta { flex-direction: row-reverse; gap:.6rem; }
+   html[dir="rtl"] .product-meta .price { order:-1; } */
+
+
+   /* Body füllt die Karte -> Footer immer ganz unten */
+.product-body{ flex:1; }
+
+/* Footer: immer gleiche Ausrichtung */
+.product-footer{
+  display:flex;
+  align-items:center;               /* vertikal mittig */
+  justify-content:space-between;
+  gap:.75rem;
+  padding:.85rem .9rem;
+  border-top:1px solid rgba(0,0,0,.06);
+}
+
+
+
+

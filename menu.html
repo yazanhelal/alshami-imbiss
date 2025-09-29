@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menü – Alshami Imbiss</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand brand-group" href="index.html"><img src="alshami_logo_transparent.png" alt="Alshami Imbiss" class="brand__logo" />
+        <div class="lang-switch">
+          <button data-setlang="de" class="is-active">DE</button>
+          <button data-setlang="ar">AR</button>
+        </div>
+      </a>
+      <nav class="menu">
+        <a href="index.html#home"     data-i18n="nav_home">Home</a>
+        <a class="is-active" href="menu.html" data-i18n="nav_menu">Menü</a>
+        <a href="index.html#services" data-i18n="nav_services">Services</a>
+        <a href="index.html#contact"  data-i18n="nav_contact">Kontakt & Öffnungszeiten</a>
+      </nav>
+      
+    </div>
+  </header>
+
+  <main class="menu-page">
+    <div class="container">
+      <h1 class="page-title" data-i18n="menu_page_title">Menü</h1>
+
+      <!-- Shawarma -->
+      <h2 class="section-title" id="shawarma" data-i18n="sec_shawarma">Shawarma</h2>
+      <div class="product-grid">
+        <article class="product-card" data-img="schwarma2.jpeg">
+          <div class="product-media"><img src="schwarma2.jpeg" alt=""></div>
+          <div class="product-body">
+            <h3 class="product-title" data-i18n="p_shaw_sand_t">Schawarma Huhn Sandwich</h3>
+            <p class="product-note"  data-i18n="p_shaw_sand_n">…</p>
+            <div class="product-meta">
+              <span class="badge"><br>A, C, E</span><span class="variant"><br>Pita Brot</span><span class="price"><br>€4.00</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-img="schwarmateller.jpeg">
+          <div class="product-media"><img src="schwarmateller.jpeg" alt=""></div>
+          <div class="product-body">
+            <h3 class="product-title" data-i18n="p_shaw_teller_t">Schawarma Teller mit Pommes</h3>
+            <p class="product-note"  data-i18n="p_shaw_teller_n">…</p>
+            <div class="product-meta">
+              <span class="badge">A, C, E</span><span class="variant">Teller</span><span class="price">€7.00</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Vegetarisch -->
+      <h2 class="section-title" id="veg" data-i18n="sec_veg">Vegetarisch</h2>
+      <div class="product-grid">
+        <article class="product-card" data-img="Falafel.png">
+          <div class="product-media"><img src="Falafel.png" alt=""></div>
+          <div class="product-body">
+            <h3 class="product-title" data-i18n="p_falafel_sand_t">Falafel Sandwich</h3>
+            <p class="product-note"  data-i18n="p_falafel_sand_n">…</p>
+            <div class="product-meta">
+              <span class="badge">, N</span><span class="variant">Pita Brot</span><span class="price">€4.50</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-img="Falafelteler.jpg">
+          <div class="product-media"><img src="Falafelteler.jpg" alt=""></div>
+          <div class="product-body">
+            <h3 class="product-title" data-i18n="p_falafel_teller_t">Falafel Teller</h3>
+            <p class="product-note"  data-i18n="p_falafel_teller_n">…</p>
+            <div class="product-meta">
+              <span class="badge"><br>N</span><span class="variant"><br>Teller</span><span class="price"><br>€6.00</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-img="Aubergini.jpg">
+          <div class="product-media"><img src="Aubergini.jpg" alt=""></div>
+          <div class="product-body">
+            <h3 class="product-title" data-i18n="p_pom_aub_t">Pommes &amp; gebratene Auberginen</h3>
+            <p class="product-note"  data-i18n="p_pom_aub_n">…</p>
+            <div class="product-meta">
+              <span class="badge">A</span><span class="variant">Teller</span><span class="price">€6.00</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card" data-img="Pommes.jpg">
+          <div class="product-media"><img src="Pommes.jpg" alt=""></div>
+          <div class="product-body">
+            <h3 class="product-title" data-i18n="p_pommes_t">Pommes-Teller</h3>
+            <p class="product-note"  data-i18n="p_pommes_n">…</p>
+            <div class="product-meta">
+              <span class="badge">A</span><span class="variant">Teller</span><span class="price">€4.00</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Hülsenfrüchte -->
+      <h2 class="section-title" id="legumes" data-i18n="sec_legumes">Hülsenfrüchte</h2>
+      <div class="product-grid">
+        <article class="product-card" data-img="Saubohnen.jpeg">
+          <div class="product-media"><img src="HUMOSblaban.jpeg" alt=""></div>
+          <div class="product-body">
+            <h3 class="product-title" data-i18n="p_chick_yog_t">Kichererbsen mit Joghurt</h3>
+            <p class="product-note"  data-i18n="p_chick_yog_n">…</p>
+            <div class="product-meta"><span class="badge">A, G, N</span><span class="variant">Teller</span><span class="price">€6.00</span></div>
+          </div>
+        </article>
+
+        <article class="product-card" data-img="Ful.jpeg">
+          <div class="product-media"><img src="Ful.jpeg" alt=""></div>
+          <div class="product-body">
+            <h3 class="product-title" data-i18n="p_Saubohnen_t">Saubohnen</h3>
+            <p class="product-note"  data-i18n="p_Saubohnen_n">…</p>
+            <div class="product-meta"><span class="badge"><br>A, G, N</span><span class="variant"><br>Teller</span><span class="price"><br>€6.00</span></div>
+          </div>
+        </article>
+
+        <article class="product-card" data-img="kirchererbsen.jpeg">
+          <div class="product-media"><img src="kirchererbsen.jpeg" alt=""></div>
+          <div class="product-body">
+            <h3 class="product-title" data-i18n="p_chick_oil_t">Kichererbsen mit Öl</h3>
+            <p class="product-note"  data-i18n="p_chick_oil_n">…</p>
+            <div class="product-meta"><span class="badge"><br>A, G, N</span><span class="variant"><br>Teller</span><span class="price"><br>€6.00</span></div>
+          </div>
+        </article>
+
+        <article class="product-card" data-img="Joghurt Fattah.jpeg">
+          <div class="product-media"><img src="Joghurt Fattah.jpeg" alt=""></div>
+          <div class="product-body">
+            <h3 class="product-title" data-i18n="p_fattah_yog_t">Joghurt Fattah</h3>
+            <p class="product-note"  data-i18n="p_fattah_yog_n">…</p>
+            <div class="product-meta"><span class="badge">A, G, H, N</span><span class="variant">Teller</span><span class="price">€6.00</span></div>
+          </div>
+        </article>
+
+        <article class="product-card" data-img="FattahÖl.jpeg">
+          <div class="product-media"><img src="FattahÖl.jpeg" alt=""></div>
+          <div class="product-body">
+            <h3 class="product-title" data-i18n="p_fattah_oil_t">Olivenöl Fattah</h3>
+            <p class="product-note"  data-i18n="p_fattah_oil_n">…</p>
+            <div class="product-meta"><span class="badge"><br>A, G, H, N</span><span class="variant"><br>Teller</span><span class="price"><br>€6.00</span></div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Beilagen -->
+      <h2 class="section-title" id="Beilagen" data-i18n="sec_sides">Beilagen</h2>
+      <div class="product-grid">
+        <article class="product-card" data-img="Tbule.webp">
+          <div class="product-media"><img src="Tbule.webp" alt=""></div>
+          <div class="product-body">
+            <h3 class="product-title" data-i18n="p_tabbouleh_t">Tabbouleh</h3>
+            <p class="product-note"  data-i18n="p_tabbouleh_n">…</p>
+            <div class="product-meta"><span class="badge">A</span><span class="variant">Teller</span><span class="price">€6.00</span></div>
+          </div>
+        </article>
+
+        <article class="product-card" data-img="Mtabal.webp">
+          <div class="product-media"><img src="Mtabal.webp" alt=""></div>
+          <div class="product-body">
+            <h3 class="product-title" data-i18n="p_mutabbal_t">Mutabbal mit Auberginen</h3>
+            <p class="product-note"  data-i18n="p_mutabbal_n">…</p>
+            <div class="product-meta"><span class="badge"><br>N, G</span><span class="variant"><br>Teller</span><span class="price"><br>€6.00</span></div>
+          </div>
+        </article>
+
+        <article class="product-card" data-img="Kibbeh.jpeg">
+          <div class="product-media"><img src="Kibbeh.jpeg" alt=""></div>
+          <div class="product-body">
+            <h3 class="product-title" data-i18n="p_kibbeh_t">Kibbeh 4 Stück</h3>
+            <p class="product-note"  data-i18n="p_kibbeh_n">…</p>
+            <div class="product-meta"><span class="badge">N</span><span class="variant">Teller</span><span class="price">€10.00</span></div>
+          </div>
+        </article>
+
+        <article class="product-card" data-img="Hummus.jpeg">
+          <div class="product-media"><img src="Hummus.jpeg" alt=""></div>
+          <div class="product-body">
+            <h3 class="product-title" data-i18n="p_hummus_t">Hummus</h3>
+            <p class="product-note"  data-i18n="p_hummus_n">…</p>
+            <div class="product-meta"><span class="badge">A, G, N</span><span class="variant">Teller</span><span class="price">€6.00</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">&copy; <span id="year"></span> Al-Shami Imbiss</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+

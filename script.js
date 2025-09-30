@@ -165,9 +165,10 @@
   };
 
   function setDirFont(lang){
-    document.documentElement.lang = (lang==='ar'?'ar':'de');
-    document.documentElement.dir  = (lang==='ar'?'rtl':'ltr');
-    document.querySelectorAll('.price').forEach(el=> el.setAttribute('dir','ltr')); // Preise immer LTR
+  document.documentElement.lang = (lang==='ar'?'ar':'de');
+  // document.documentElement.dir  = (lang==='ar'?'rtl':'ltr');
+  document.querySelectorAll('.nav, .nav--overlay').forEach(el=> el.setAttribute('dir','ltr'));
+  document.querySelectorAll('.price').forEach(el=> el.setAttribute('dir','ltr')); // Preise immer LTR
   }
 
   function applyText(el, key){

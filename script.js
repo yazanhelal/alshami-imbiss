@@ -111,13 +111,13 @@
       p_chick_oil_n:"Knoblauch, Zitronensaft, Olivenöl, Salz, Tomaten, Petersilie.",
       p_fattah_yog_t:"Joghurt Fattah",
       p_fattah_yog_n:"Fladenbrot, Joghurt, Kichererbsen, Butter, Knoblauch, Gewürze.",
-      p_fattah_oil_t:"Olivenöl Fattah",
-      p_fattah_oil_n:"Brot, Kichererbsen, Olivenöl, Knoblauch, Kreuzkümmel.",
+      p_fattah_oil_t:"Saubohnen mit Jogurt", 
+      p_fattah_oil_n:"Saubohnen, Knoblauch, Zitronensaft, Olivenöl, Salz ,Tomaten,Petersilie , Johurt,Tahini",
       p_tabbouleh_t:"Tabbouleh", p_tabbouleh_n:"Bulgur, Petersilie, Tomaten, Minze, Zitronensaft, Olivenöl, Salz.",
       p_mutabbal_t:"Mutabbal mit Auberginen", p_mutabbal_n:"Aubergine, Tahini, Knoblauch, Zitronensaft, Olivenöl, Salz.",
       p_kibbeh_t:"Kibbeh 4 Stück", p_kibbeh_n:"Bulgur, Fleisch, Zwiebel, Pinienkerne, Gewürze.",
       p_hummus_t:"Hummus", p_hummus_n:"Kichererbsen, Tahini, Zitronensaft, Salz.",
-      p_Saubohnen_t:"Saubohnen", p_Saubohnen_n:"Saubohnen, Olivenöl, Knoblauch"
+      p_Saubohnen_t:"Saubohnen mit Öl", p_Saubohnen_n:"Saubohnen, Knoblauch, Zitronensaft, Olivenöl, Salz ,Tomaten,Petersilie"
     },
     ar:{
       nav_home:"الرئيسية", nav_menu:"القائمة", nav_services:"الخدمات", nav_contact:"الاتصال وساعات العمل",
@@ -161,7 +161,7 @@
       p_mutabbal_t:"متبل باذنجان", p_mutabbal_n:"باذنجان، طحينة، ثوم، عصير ليمون، زيت زيتون، ملح.",
       p_kibbeh_t:" اربعة قطع كبة", p_kibbeh_n:"برغل، لحم، بصل، صنوبر، بهارات.",
       p_hummus_t:"حمص", p_hummus_n:"حمص، طحينة، عصير ليمون، ملح.",
-      p_Saubohnen_t:"فول", p_Saubohnen_n:"فول، زيت زيتون، ثوم"
+      p_Saubohnen_t:" فول بزيت", p_Saubohnen_n:"فول، ثوم، عصير ليمون، زيت زيتون، ملح، طماطم، بقدونس"
     }
   };
 
@@ -379,11 +379,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "Tabbouleh",
     "Pommes & gebratene Auberginen",
     "Pommes-Teller",
-    "Kichererbsen mit Joghurt",
     "Kichererbsen mit Öl",
-    "Joghurt Fattah",
-    "Olivenöl Fattah",
-    "Saubohnen",
+    "Saubohnen mit Öl",
   ];
 
   // alle Produkt-Titel durchgehen

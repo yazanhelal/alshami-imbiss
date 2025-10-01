@@ -58,7 +58,7 @@
           </div>
 
           <div class="card about__card">
-            <h2 id="about-title" data-i18n="about_title">Das beste Shawarma in Wien,<br />in Worten und Taten.</h2>
+            <h2 id="about-title" data-i18n="about_title">Das beste Essen in Wien,<br />in Worten und Taten.</h2>
             <p data-i18n="about_text">Im Al-Shami, im 16. Bezirk in Wien, bieten wir syrische Aromen …</p>
           </div>
         </div>
@@ -115,9 +115,14 @@
               <figcaption data-i18n="g1_title">Knusprige Falafel mit Hummus</figcaption>
             </figure>
 
-            <figure class="gallery-item" data-img="Hummus.jpeg">
-              <div class="gi-media"><img src="Hummus.jpeg" alt="" /></div>
+            <figure class="gallery-item" data-img="HOMOS4.jpeg">
+              <div class="gi-media"><img src="HOMOS4.jpeg" alt="" /></div>
               <figcaption data-i18n="g2_title">Cremiger Hummus mit Olivenöl</figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-img="HOMOS.webp">
+              <div class="gi-media"><img src="HOMOS.webp" alt="" /></div>
+              <figcaption data-i18n="g7_title">Kichererbsen</figcaption>
             </figure>
 
             <figure class="gallery-item" data-img="Tbule.webp">
@@ -128,6 +133,11 @@
             <figure class="gallery-item" data-img="Mtabal.webp">
               <div class="gi-media"><img src="Mtabal.webp" alt="" /></div>
               <figcaption data-i18n="g4_title">Mutabbal mit Auberginen</figcaption>
+            </figure>
+
+            <figure class="gallery-item" data-img="schwarma2.jpeg">
+              <div class="gi-media"><img src="schwarma2.jpeg" alt="" /></div>
+              <figcaption data-i18n="g8_title">Schawarma</figcaption>
             </figure>
 
             <figure class="gallery-item" data-img="Schawarma Teller ">
@@ -145,13 +155,11 @@
 
       <!-- MODAL -->
       <div class="modal" id="gModal" aria-hidden="true">
-        <div class="modal__overlay" data-close></div>
+          <div class="modal__overlay" data-close style="background:rgba(0,0,0,0);"></div>
         <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="mTitle">
           <button class="modal__close" type="button" title="Schließen" data-close>&times;</button>
-          <div class="modal__media"><img id="mImg" src="" alt="" /></div>
-          <div class="modal__body">
-            <h3 id="mTitle"></h3>
-            <p id="mDesc"></p>
+          <div class="modal__media" style="display:flex;align-items:center;justify-content:center;min-height:60vh;">
+            <img id="mImg" src="" alt="" style="max-width:90vw;max-height:80vh;object-fit:contain;display:block;margin:auto;" />
           </div>
         </div>
       </div>
@@ -170,6 +178,10 @@
 
               <figure class="video-item" data-src="shwarma12.mp4">
                 <div class="vi-thumb"><video src="shwarma12.mp4" muted playsinline preload="metadata"></video></div>
+              </figure>
+
+               <figure class="video-item" data-src="videonew.mp4">
+                <div class="vi-thumb"><video src="videonew.mp4" muted playsinline preload="metadata"></video></div>
               </figure>
 
               <figure class="video-item" data-src="Falafel.mp4">
@@ -203,12 +215,12 @@
             <div class="contact-card">
               <h3 data-i18n="contact_h_hours">Öffnungszeiten</h3>
               <div class="hours">
-                <div>Montag</div><div>6:00 – 21:00</div>
-                <div>Dienstag</div><div>6:00 – 21:00</div>
-                <div>Mittwoch</div><div>6:00 – 21:00</div>
-                <div>Donnerstag</div><div>6:00 – 21:00</div>
-                <div>Freitag</div><div>6:00 – 21:00</div>
-                <div>Samstag</div><div>6:00 – 18:00</div>
+                <div>Montag</div><div>6:00 – 19:00</div>
+                <div>Dienstag</div><div>6:00 – 19:00</div>
+                <div>Mittwoch</div><div>6:00 – 19:00</div>
+                <div>Donnerstag</div><div>6:00 – 19:00</div>
+                <div>Freitag</div><div>6:00 – 19:00</div>
+                <div>Samstag</div><div>6:00 – 19:00</div>
                 <div>Sonntag</div><div>Ruhetag</div>
               </div>
               <small class="hint" data-i18n="contact_hint">Feiertage können abweichen.</small>

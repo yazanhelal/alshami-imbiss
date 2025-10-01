@@ -6,9 +6,6 @@
   if (!items.length || !modal) return;
 
   const mImg   = document.getElementById('mImg');
-  const mTitle = document.getElementById('mTitle');
-  const mDesc  = document.getElementById('mDesc');
-  const mBody  = modal.querySelector('.modal__body');
 
   function loadImage(src){ return new Promise((res,rej)=>{const i=new Image(); i.onload=()=>res(src); i.onerror=rej; i.src=src}); }
   function dataFor(el){
@@ -23,12 +20,12 @@
   }
   async function open(el){
     const d = dataFor(el);
-    mBody.classList.add('is-hidden');
     try { mImg.src = await loadImage(d.src); } catch { mImg.src = d.fallback; }
-    mImg.alt = d.title; mTitle.textContent = d.title; mDesc.textContent = d.desc;
+    mImg.alt = d.title;
     mImg.classList.remove('spin-in'); void mImg.offsetWidth; mImg.classList.add('spin-in');
-    mImg.addEventListener('animationend', ()=> mBody.classList.remove('is-hidden'), {once:true});
-    modal.classList.add('is-open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden';
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
   }
   function close(){ modal.classList.remove('is-open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; setTimeout(()=>{mImg.src=''},150); }
   items.forEach(el => el.addEventListener('click', ()=> open(el)));
@@ -71,7 +68,7 @@
       // NAV / Buttons / Überschriften
       nav_home:"Home", nav_menu:"Menü", nav_services:"Services", nav_contact:"Kontakt & Öffnungszeiten",
       hero_title:"Willkommen<br>beim Al-Shami<br>Imbiss", hero_cta:"Menü",
-      about_title:"Das beste Shawarma in Wien,<br>in Worten und Taten.",
+      about_title:"Das beste Essen in Wien,<br>in Worten und Taten.",
       about_text:"Im Al-Shami, im 16. Bezirk in Wien, bieten wir syrische Aromen im Herzen Österreichs. Unsere Mission: authentische Kocherfahrung mit der Vielfalt der syrischen Küche – von köstlichem Shawarma über Falafel bis hin zu cremigem Hummus.",
       about_cta:"Galerie ansehen",
       gallery_title:"Galerie",
@@ -91,6 +88,8 @@
       g4_title:"Mutabbal mit Auberginen",    g4_desc:"Cremiger Auberginen-Dip mit Tahini, Knoblauch, Joghurt und Granatapfelkernen.",
       g5_title:"Schawarma Teller",
       g6_title:"Kibbeh",
+      g7_title:"Kichererbsen",
+      g8_title:"Schawarma",
       // Menüseite – Titel
       menu_page_title:"Menü", sec_shawarma:"Shawarma", sec_veg:"Vegetarisch", sec_legumes:"Hülsenfrüchte", sec_sides:"Beilagen",
       // Menü – Produkte (Titel + Notizen/Zutaten)
@@ -123,7 +122,7 @@
     ar:{
       nav_home:"الرئيسية", nav_menu:"القائمة", nav_services:"الخدمات", nav_contact:"الاتصال وساعات العمل",
       hero_title:"مرحبًا بكم<br>في مطعم الشامي<br>للمأكولات", hero_cta:"القائمة",
-      about_title:"أفضل شاورما في فيينا،<br>قولًا وفعلاً.",
+      about_title:"أفضل اكل في فيينا،<br>قولًا وفعلاً.",
       about_text:"في مطعم الشامي، في الحي السادس عشر بفيينا، نقدم نكهات سورية أصيلة. مهمتنا: تجربة طهي حقيقية تجمع تنوّع المطبخ السوري – من الشاورما اللذيذة إلى الفلافل والحمص الكريمي.",
       about_cta:"عرض المعرض",
       gallery_title:"المعرض",
@@ -143,6 +142,8 @@
       g4_title:"متبل باذنجان",        g4_desc:"مقبل باذنجان كريمي مع طحينة وثوم وزبادي وحبوب رمان.",
       g5_title:"شاورما طبق",
       g6_title:"كبة",
+      g7_title:"حمص",
+      g8_title:"شوارما",
       // Menüseite – Titel
       menu_page_title:"القائمة", sec_shawarma:"شاورما", sec_veg:"نباتي", sec_legumes:"البقوليات", sec_sides:"المقبلات",
       // Produkte
@@ -366,3 +367,58 @@
   items.forEach(item=> item.addEventListener('click', ()=>{ const src=item.dataset.src || item.querySelector('video')?.getAttribute('src'); if(src) openVideo(src); }));
 
 })();
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Liste aller veganen Gerichte
+  const veganItems = [
+    "Falafel Teller",
+    "Falafel Sandwich",
+    "Hummus",
+    "Mutabbal",
+    "Tabbouleh",
+    "Pommes & gebratene Auberginen",
+    "Pommes-Teller",
+    "Kichererbsen mit Joghurt",
+    "Kichererbsen mit Öl",
+    "Joghurt Fattah",
+    "Olivenöl Fattah",
+    "Saubohnen",
+  ];
+
+  // alle Produkt-Titel durchgehen
+  const titles = document.querySelectorAll(".product-title");
+
+  titles.forEach(title => {
+    const text = title.textContent.trim();
+
+    // prüfen ob dieser Titel in der Liste steht
+    if (veganItems.some(item => text.includes(item))) {
+      // nur hinzufügen wenn noch nicht vorhanden
+      if (!title.querySelector(".vegan-icon")) {
+        const icon = document.createElement("img");
+        icon.src = "veggan.jpg";   // dein Bild (achte auf richtigen Pfad!)
+        icon.alt = "Vegan";
+        icon.classList.add("vegan-icon");
+        title.appendChild(icon);
+      }
+    }
+  });
+
+  // Für die Galerie
+  galleryImages.forEach(img => {
+    const altText = img.alt.trim();
+    if (veganItems.some(item => altText.includes(item))) {
+      if (!img.parentElement.querySelector(".vegan-icon")) {
+        const icon = document.createElement("img");
+        icon.src = "veggan.jpg";
+        icon.alt = "Vegan";
+        icon.classList.add("vegan-icon");
+        img.parentElement.appendChild(icon);
+      }
+    }
+  });
+
+});
+
+

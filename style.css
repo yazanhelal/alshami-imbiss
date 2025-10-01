@@ -1,3 +1,13 @@
+/* ===== Einheitliche Video-Größe im Video-Scroller ===== */
+.video-strip__track video {
+  width: 320px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  background: #da0000;
+  display: block;
+  margin: 0 auto;
+}
 /* ===== Farb- und Typo-Variablen ===== */
 :root{
   --maroon:#f26522;     /* Top-Bar / Schild-Orange */
@@ -568,9 +578,41 @@ footer.footer{margin-top:auto}
 .video-strip h2{margin:0 auto 1rem;text-align:center;max-width:460px;background:var(--maroon);color:#9de24c;font-family:'Poppins',sans-serif;font-weight:700;letter-spacing:.04em;padding:.6rem 1rem;border-radius:10px;box-shadow:var(--shadow)}
 .video-strip__wrap{position:relative;display:flex;align-items:center}
 .video-strip__track{display:flex;gap:1rem;overflow-x:auto;padding:1rem 0;scroll-behavior:smooth;scroll-snap-type:x mandatory}
-.video-item{min-width:260px;max-width:360px;flex:0 0 auto;scroll-snap-align:center;background:rgba(255,255,255,0.06);border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,.18);cursor:pointer}
-.video-item .vi-thumb{background:transparent;display:flex;align-items:center;justify-content:center;padding:0}
-.video-item video{width:100%;height:auto;object-fit:contain;display:block}
+.video-item{
+  width:320px;
+  height:290px;
+  min-width:320px;
+  max-width:320px;
+  flex:0 0 320px;
+  scroll-snap-align:center;
+  background:#000;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+}
+.video-item .vi-thumb{
+  background:transparent;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  padding:0;
+}
+.video-item video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  border-radius:0;
+  background:#000;
+  margin:0;
+}
 .video-item figcaption{padding:.6rem 0;text-align:center;font-weight:600;color:#9de24c}
 
 /* enable 3D hover-tilt effect similar to .service-card */
@@ -694,6 +736,7 @@ footer.footer{margin-top:auto}
   padding: 0.15em 0.6em;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
+
 
 /* aktiver Menülink */
 .menu .is-active{font-weight:700;text-decoration:underline}
@@ -823,6 +866,15 @@ html[dir="rtl"] .product-body { text-align: right; }
   color: #fff;
   transform: scale(1.08);
 }
+
+
+.vegan-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 6px;     /* Abstand zum Text */
+  vertical-align: middle;
+}
+
 
 
 

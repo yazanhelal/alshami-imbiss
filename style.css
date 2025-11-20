@@ -742,7 +742,7 @@ footer.footer{margin-top:auto}
 .menu .is-active{font-weight:700;text-decoration:underline}
 
 /* ===== Anchor-Offset, damit sticky Navbar nichts verdeckt ===== */
-#home, #services, #contact, #gallery, #shawarma, #veg, #legumes, #Beilagen, .section-title {
+#home, #services, #contact, #gallery, #shawarma, #veg, #legumes, #Beilagen, #getraenke, .section-title {
   scroll-margin-top: 80px;
 }
 
@@ -874,6 +874,8 @@ html[dir="rtl"] .product-body { text-align: right; }
   margin-left: 6px;     /* Abstand zum Text */
   vertical-align: middle;
 }
+
+
 
 
 

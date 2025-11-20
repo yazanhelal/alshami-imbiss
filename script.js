@@ -117,7 +117,8 @@
       p_mutabbal_t:"Mutabbal mit Auberginen", p_mutabbal_n:"Aubergine, Tahini, Knoblauch, Zitronensaft, Olivenöl, Salz.",
       p_kibbeh_t:"Kibbeh 4 Stück", p_kibbeh_n:"Bulgur, Fleisch, Zwiebel, Pinienkerne, Gewürze.",
       p_hummus_t:"Hummus", p_hummus_n:"Kichererbsen, Tahini, Zitronensaft, Salz.",
-      p_Saubohnen_t:"Saubohnen mit Öl", p_Saubohnen_n:"Saubohnen, Knoblauch, Zitronensaft, Olivenöl, Salz ,Tomaten,Petersilie"
+      p_Saubohnen_t:"Saubohnen mit Öl", p_Saubohnen_n:"Saubohnen, Knoblauch, Zitronensaft, Olivenöl, Salz ,Tomaten,Petersilie",
+      p_BaBAganoug_t:"Baba Ganoush", p_BaBAganoug_n:"Auberginen, Tahini, Knoblauch, Zitronensaft, Olivenöl, Salz, Granatapfel."
     },
     ar:{
       nav_home:"الرئيسية", nav_menu:"القائمة", nav_services:"الخدمات", nav_contact:"الاتصال وساعات العمل",
@@ -161,7 +162,8 @@
       p_mutabbal_t:"متبل باذنجان", p_mutabbal_n:"باذنجان، طحينة، ثوم، عصير ليمون، زيت زيتون، ملح.",
       p_kibbeh_t:" اربعة قطع كبة", p_kibbeh_n:"برغل، لحم، بصل، صنوبر، بهارات.",
       p_hummus_t:"حمص", p_hummus_n:"حمص، طحينة، عصير ليمون، ملح.",
-      p_Saubohnen_t:" فول بزيت", p_Saubohnen_n:"فول، ثوم، عصير ليمون، زيت زيتون، ملح، طماطم، بقدونس"
+      p_Saubohnen_t:" فول بزيت", p_Saubohnen_n:"فول، ثوم، عصير ليمون، زيت زيتون، ملح، طماطم، بقدونس",
+      p_BaBAganoug_t:"بابا غنوج", p_BaBAganoug_n:"باذنجان، طحينة، ثوم، عصير ليمون، زيت زيتون، ملح, رمان."
     }
   };
 

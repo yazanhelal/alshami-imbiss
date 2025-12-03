@@ -236,10 +236,32 @@ h2{font-size:clamp(22px,3.2vw,30px)}
 /* ===== About-Bereich (tan) ===== */
 .about{background:var(--maroon);padding:4rem 0 3rem}
 .about__grid{
-  display:grid;grid-template-columns:1.1fr 1fr;gap:2rem;align-items:center;
+  display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:1.6rem;align-items:center;
 }
-.about__img img{
-  width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow);
+.about__img-left,
+.about__img-right{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:360px; /* fixed visual height for both images */
+  overflow:hidden;
+}
+.about__img-left img,
+.about__img-right img{
+  max-height:100%;
+  width:auto;
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  object-fit:contain; /* show whole image without cropping */
+  display:block;
+}
+
+@media (max-width: 720px){
+  .about__img-left,
+  .about__img-right{
+    height:220px; /* reduce height on small screens */
+  }
+  .about__grid{ grid-template-columns: 1fr; gap:1rem; }
 }
 .card{
   background:linear-gradient(#d9b18a,#d9b18a) padding-box,
